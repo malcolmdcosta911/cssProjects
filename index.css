@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>;
+    font-style: normal; */
 }
 
 .flexbox {
@@ -13,9 +23,10 @@
     position: relative;
     height: 70vh;
     border-radius: 50px;
-    flex: 1;
-    transition: flex 1s ease;
+    transition: flex .4s ease-in;
     cursor: pointer;
+    flex-basis: 0;
+    flex-grow: .5;
 
 }
 
@@ -33,14 +44,15 @@
     left: 10px;
     color: #fff;
     font-size: 16px;
-    display: none;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
 }
 
 .active {
-    flex-grow: 3;
+    flex-grow: 2;
     border-radius: 2%;
 }
 
 .active p {
-    display: block;
+    opacity: 1;
 }
