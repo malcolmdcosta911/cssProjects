@@ -1,19 +1,20 @@
-const allItems = document.getElementsByClassName("step");
+const showBtn = document.getElementById("show");
+const hideBtn = document.getElementById("hide");
+const container = document.getElementById("container");
+const menuCircle = document.getElementById("menuCircle");
+const navbar = document.getElementById("navbar");
 
-let step = 1;
 
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
 
-nextBtn.addEventListener("click", (e) => {
-  if (step == 4) return;
-  Array.from(allItems)[step].classList.add("active");
-  step++;
-  // console.log("step", step);
+showBtn.addEventListener("click", (e) => {
+  container.classList.add("show");
+  menuCircle.classList.add("rotate");
+  navbar.classList.add("active");
 });
 
-prevBtn.addEventListener("click", (e) => {
-  if (step == 1) return;
-  step--;
-  Array.from(allItems)[step].classList.remove("active");
+hideBtn.addEventListener("click", (e) => {
+  container.classList.remove("show");
+  menuCircle.classList.remove("rotate");
+  navbar.classList.remove("active");
+
 });
