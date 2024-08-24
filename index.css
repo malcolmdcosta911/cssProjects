@@ -5,132 +5,93 @@
     box-sizing: border-box;
 }
 
-/* html {
-    
-    
-} */
-
 body {
     font-size: 1rem;
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
-    /* min-height: 100vh; */
 }
-
-.overflow--warpper {
-    max-width: 100%;
-    background: black;
-    overflow-x: hidden;
-    min-height: 100vh;
-}
-
-
 
 .container {
-    position: relative;
     min-height: 100vh;
-    background: #fff;
-    transition: transform linear .5s;
-    transform-origin: top left;
-    z-index: 1;
-    padding: 5rem 3rem;
-    /* padding-bottom: 5rem ; */
-
-}
-
-.container.show {
-    transform: rotate(-25deg);
-}
-
-.menu {
-    position: absolute;
-    z-index: 100;
-    left: -100px;
-    top: -100px;
-    /* background-color: aqua; */
-
-}
-
-
-.menu__circle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    width: 200px;
-    height: 200px;
-    background-color: orange;
-    border-radius: 50%;
-    transition: transform linear .5s;
-    /* transform-origin: top left; */
+    background: #7eb4e2;
 }
 
-.menu__circle.rotate {
-    transform: rotate(-70deg);
+.spinner {
+    position: relative;
+    /* background-color: red; */
+    width: 80px;
+    height: 80px;
 }
 
-.menu__circle button {
-    all: unset;
-    /* border: 1px solid red; */
-    /* height: 100px; */
-    color: #fff;
-    padding: 6px;
+
+.spinner::before,
+.spinner::after {
+    content: "";
     position: absolute;
-    font-family: inherit;
-    cursor: pointer;
-}
-
-.menu__circle button#show {
-    top: 70%;
-    left: 60%;
-}
-
-.menu__circle button#hide {
-    top: 70%;
-    left: 30%;
-    transform: rotate(74deg);
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+    border: 50px solid transparent;
+    border-bottom-color: #32557f;
+    /* border-radius: 50%; */
 }
 
 
-.container>img {
-    /* width: 100%;
-    object-fit: contain; */
+.spinner::before {
+    border-bottom-color: #447f32;
+    animation-duration: 3s;
+    animation-name: rotateA;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    /* 1 second is 25 percent animation */
 }
 
+.spinner::after {
+    transform: rotate(90deg);
+    animation-duration: 3s;
+    animation-name: rotateB;
+    animation-iteration-count: infinite;
 
-.navbar {
-    position: fixed;
-    left: 0px;
-    bottom: 40px;
-    z-index: 100;
-}
-
-.navbar ul {
-    list-style-type: none;
-}
-
-.navbar ul li {
-    transform: translateX(-300%);
-    margin: 1rem 0;
-    transition: transform .5s linear;
-    color: #fff;
-    opacity: 0;
-    cursor: none;
-}
-
-.navbar ul li+li {
-    /* transform: translateX(-1400%); */
-    margin-left: .5rem;
-}
-
-.navbar ul li+li+li {
-    /* transform: translateX(-1800%); */
-    margin-left: 1rem;
 
 }
 
+@keyframes rotateA {
 
-.navbar.active ul li {
-    transform: translateX(0);
-    opacity: 1;
-    cursor: pointer;
+    0%,
+    25% {
+        transform: rotate(0deg);
+    }
 
+    50%,
+    75% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateB {
+
+    0%,
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50%,
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(450deg);
+    }
 }
