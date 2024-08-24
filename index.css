@@ -39,13 +39,21 @@ body {
     height: 0;
     left: 0;
     top: 0;
+
     /* each *individual border-left(others) is a traingle when width and height are 0..uncomment to seen*/
     /* border-top: 50px solid red;
     border-bottom: 50px solid rgb(81, 255, 0);
     border-left: 50px solid rgb(98, 0, 255);
     border-right: 50px solid rgb(255, 0, 221); */
+
+
     border: 50px solid transparent;
     border-bottom-color: #32557f;
+
+    /* if only 3 portions then rectangular triangle but if 4 portions then square traingle*/
+    /* border-left: 50px solid red;
+    border-right: 50px solid green;
+    border-bottom: 50px solid #32557f; */
 }
 
 
