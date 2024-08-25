@@ -14,10 +14,11 @@ boxes.forEach((box) => {
     // If the given node already exists in the document, appendChild() removes it from its current position and places it at the new position.
     box.append(fill);
   });
-  box.addEventListener("dragenter", (event) => {
+  box.addEventListener("dragenter", (e) => {
+    // e.preventDefault();-->not shown needed in mdn docs
     box.classList.add("hover");
   });
-  box.addEventListener("dragleave", (event) => {
+  box.addEventListener("dragleave", (e) => {
     box.classList.remove("hover");
   });
 });
