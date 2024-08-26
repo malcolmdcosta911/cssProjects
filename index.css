@@ -76,10 +76,12 @@ body {
 
 @keyframes rotate {
     from {
-        transform: rotate(0) scale(1);
+        transform: rotate(0) scale(.9);
+        opacity: .8;
     }
 
     to {
         transform: rotate(360deg) scale(1.4);
+        opacity: 1;
     }
 }
