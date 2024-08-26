@@ -18,93 +18,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    background: #7eb4e2;
+    background: #0f1214;
 }
 
-.spinner {
+.ripple {
+    all: unset;
+    padding: 1rem 2rem;
+    background: rgb(73, 16, 73);
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: inherit;
     position: relative;
-    /* background-color: red; */
+    overflow: hidden;
+    color: #fff;
+}
+
+.circle {
+    position: absolute;
     width: 100px;
     height: 100px;
-    /*width x height needed to center */
+    border-radius: 50%;
+    background: #fff;
+    /* transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%) scale(0.1);
+    /* opacity: 1; */
+    animation: 1s scaleUp ease-out;
 }
 
 
-.spinner::before,
-.spinner::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 0;
-    top: 0;
+@keyframes scaleUp {
 
-    /* each *individual border-left(others) is a traingle when width and height are 0..uncomment to seen*/
-    /* border-top: 50px solid red;
-    border-bottom: 50px solid rgb(81, 255, 0);
-    border-left: 50px solid rgb(98, 0, 255);
-    border-right: 50px solid rgb(255, 0, 221); */
-
-
-    border: 50px solid transparent;
-    border-bottom-color: #32557f;
-
-    /* if only 3 portions then rectangular triangle but if 4 portions then square traingle*/
-    /* border-left: 50px solid red;
-    border-right: 50px solid green;
-    border-bottom: 50px solid #32557f; */
-}
-
-
-.spinner::before {
-    border-bottom-color: #447f32;
-    animation-duration: 3s;
-    animation-name: rotateA;
-    animation-iteration-count: infinite;
-    animation-delay: 1s;
-    /* 1 second is 25 percent animation */
-}
-
-.spinner::after {
-    transform: rotate(90deg);
-    animation-duration: 3s;
-    animation-name: rotateB;
-    animation-iteration-count: infinite;
-
-
-}
-
-@keyframes rotateA {
-
-    0%,
-    25% {
-        transform: rotate(0deg);
-    }
-
-    50%,
-    75% {
-        transform: rotate(180deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes rotateB {
-
-    0%,
-    25% {
-        transform: rotate(90deg);
-    }
-
-    50%,
-    75% {
-        transform: rotate(270deg);
-    }
-
-    100% {
-        transform: rotate(450deg);
+    to {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
     }
 }
