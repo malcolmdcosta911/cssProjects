@@ -25,11 +25,21 @@ body {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #fff;
+    /* background: #fff; */
+    background: linear-gradient(0deg, red 50%, white, white 50%);
     position: relative;
     animation: 3s infinite alternate rotate;
 }
 
+.circle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0f1214;
+    left: 20px;
+    top: 20px;
+}
 
 
 .spinner::before,
@@ -38,24 +48,28 @@ body {
     position: absolute;
     width: 100px;
     height: 50px;
+    /* as the half of the width */
     background-color: transparent;
     border: 20px solid #fff;
-    border-top-left-radius: 230px;
-    border-top-right-radius: 230px;
+    border-top-left-radius: 70px;
+    /* 100px of height + 10px of border */
+    border-top-right-radius: 70px;
+    /* 100px of height + 10px of border */
     border-bottom: 0;
     left: -30px;
-
-
 }
 
 .spinner::before {
-    top: -34px;
+    /* top: -34px; */
+    top: -30px;
+
 
 }
 
 .spinner::after {
     border-color: red;
-    top: 42px;
+    /* top: 42px; */
+    top: 40px;
     transform: rotate(180deg);
 }
 
