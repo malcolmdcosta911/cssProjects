@@ -6,50 +6,117 @@
 }
 
 body {
-    font-size: 1rem;
+    /* font-size: 1rem; */
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
+    /* min-height: 100vh; */
+
 }
 
-.container {
-    min-height: 100vh;
-    width: 100%;
+.main {
+    position: relative;
+    background-color: rgb(179, 233, 215);
+}
+
+.nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 100;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 20px;
+    background: hwb(73 28% 27%);
+    color: #fff;
+    transition: all .5s ease-in;
+}
+
+.nav.active {
+    padding: 15px 20px;
+    background: #ffffff;
+    color: #222;
+}
+
+.nav h1 {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+
+.nav ul li {
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+
+
+.hero {
+    background-image: url("./assets/images/hero.jpg");
+    width: 100%;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #0f1214;
-}
-
-.ripple {
-    all: unset;
-    padding: 1rem 2rem;
-    background: rgb(73, 16, 73);
-    border-radius: 2px;
-    cursor: pointer;
-    font-family: inherit;
-    position: relative;
-    overflow: hidden;
+    padding: 0px 20px;
+    z-index: 1;
     color: #fff;
+
 }
 
-.circle {
+.hero h2 {
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+}
+
+.hero p {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.hero::before {
+    content: "";
     position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #fff;
-    /* transform: translate(-50%, -50%); */
-    transform: translate(-50%, -50%) scale(0.1);
-    /* opacity: 1; */
-    animation: 1s scaleUp ease-out;
+    background-color: rgb(164, 205, 227);
+    left: 0;
+    right: 0;
+    /*right 0 goes full width */
+    top: 0;
+    /* width: 100%; */
+    height: 400px;
+    /* z-index -1 highlights text*/
+    z-index: -1;
+    opacity: .3;
 }
 
 
-@keyframes scaleUp {
+.conatiner {
+    padding: 30px 20px;
+    /* margin-bottom: 40px; */
+}
 
-    to {
-        transform: translate(-50%, -50%) scale(3);
-        opacity: 0;
-    }
+.conatiner h3 {
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.conatiner p {
+    line-height: 1.5;
+    margin: 0;
+
 }
