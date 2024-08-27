@@ -60,7 +60,7 @@ body {
     /* 100px of height + 10px of border */
     border-bottom: 0;
     left: -30px;
-    box-shadow: none;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
 .spinner::before {
