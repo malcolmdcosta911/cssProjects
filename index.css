@@ -107,20 +107,17 @@ body {
     cursor: pointer;
     font-size: 18px;
     background: transparent;
+
+
 }
+
+.faq .faq__toggle .fa-caret-down {
+    transform: rotate(-90deg);
+    transition: transform .3s ease-in;
+
+}
+
 
 .faq.active .faq__toggle .fa-caret-down {
-    display: none;
-}
-
-.faq.active .faq__toggle .fa-xmark {
-    display: flex;
-}
-
-.faq .faq__toggle i.fa-xmark {
-    padding: 5px 7px;
-    border-radius: 50%;
-    background: rgb(138, 136, 136);
-    color: #fff;
-    display: none;
+    transform: rotate(0);
 }
