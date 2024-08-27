@@ -29,6 +29,8 @@ body {
     background: linear-gradient(0deg, red 50%, white, white 50%);
     position: relative;
     animation: 3s infinite alternate rotate;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
 }
 
 .circle {
@@ -36,9 +38,10 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #0f1214;
+    background: #fff;
     left: 20px;
     top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 
@@ -57,6 +60,7 @@ body {
     /* 100px of height + 10px of border */
     border-bottom: 0;
     left: -30px;
+    box-shadow: inherit;
 }
 
 .spinner::before {
