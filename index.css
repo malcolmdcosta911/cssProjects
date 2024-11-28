@@ -14,20 +14,21 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-/* html {
-    scroll-snap-type: y mandatory;
 
-} */
 
 .scrollSnap {
-    max-height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    /* if want own scroll snap wrapper without html  then create a wrapper with max-height */
+    display: flex;
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
 }
 
 section {
     height: 100vh;
+    /* use min width not width when using flex*/
+    /* width: 100vw; */
+    min-width: 100vw;
     padding: 1rem;
     font-size: 1.6rem;
     scroll-snap-align: start;
