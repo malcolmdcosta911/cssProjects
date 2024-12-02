@@ -5,6 +5,7 @@ let startY = 0;
 
 //zindex
 let zindex = 1;
+let cardCount = 1;
 
 addCardBtn.addEventListener("click", addCard);
 
@@ -14,11 +15,17 @@ function addCard(e) {
   card.classList.add("card");
   card.draggable = true;
   card.contentEditable = true;
-  card.innerText = "card " + zindex;
+  card.innerText = "card " + cardCount;
   ++zindex;
+  ++cardCount;
   card.style.zIndex = zindex;
   container.append(card);
   addDragToCard();
+}
+
+function increaseZIndex(card) {
+  ++zindex;
+  card.style.zIndex = zindex;
 }
 
 function addDragToCard() {
@@ -27,14 +34,16 @@ function addDragToCard() {
     //
     // show card on top of prev on click
     card.addEventListener("click", (e) => {
-      ++zindex;
-      card.style.zIndex = zindex;
+      // ++zindex;
+      // card.style.zIndex = zindex;
+      increaseZIndex(card);
     });
     //
     //
     card.addEventListener("dragstart", (e) => {
       startX = e.clientX;
       startY = e.clientY;
+      increaseZIndex(card); // show card on top of drag drop on top of prev
     });
 
     card.addEventListener("dragend", (e) => {

@@ -38,11 +38,9 @@ body {
     outline: 1px solid rgb(234, 63, 63);
     color: #fff;
     font-weight: 500;
-}
-
-.card::-webkit-scrollbar {
     scrollbar-width: thin;
 }
+
 
 
 .add-btn {
