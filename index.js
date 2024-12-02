@@ -1,20 +1,45 @@
-const showBtn = document.getElementById("show");
-const hideBtn = document.getElementById("hide");
-const container = document.getElementById("container");
-const menuCircle = document.getElementById("menuCircle");
-const navbar = document.getElementById("navbar");
+const addCardBtn = document.getElementById("addBtn");
 
+let startX = 0;
+let startY = 0;
 
+//zindex
+let zindex = 1;
 
-showBtn.addEventListener("click", (e) => {
-  container.classList.add("show");
-  menuCircle.classList.add("rotate");
-  navbar.classList.add("active");
-});
+addCardBtn.addEventListener("click", addCard);
 
-hideBtn.addEventListener("click", (e) => {
-  container.classList.remove("show");
-  menuCircle.classList.remove("rotate");
-  navbar.classList.remove("active");
+function addCard(e) {
+  const container = document.getElementById("container");
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.draggable = true;
+  card.contentEditable = true;
+  card.innerText = "card " + zindex;
+  ++zindex;
+  card.style.zIndex = zindex;
+  container.append(card);
+  addDragToCard();
+}
 
-});
+function addDragToCard() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    //
+    // show card on top of prev on click
+    card.addEventListener("click", (e) => {
+      ++zindex;
+      card.style.zIndex = zindex;
+    });
+    //
+    //
+    card.addEventListener("dragstart", (e) => {
+      startX = e.clientX;
+      startY = e.clientY;
+    });
+
+    card.addEventListener("dragend", (e) => {
+      card.style.top = card.offsetTop - (startY - e.clientY) + "px";
+      card.style.left = card.offsetLeft - (startX - e.clientX) + "px";
+    });
+  });
+}
