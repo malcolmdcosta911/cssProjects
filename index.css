@@ -15,95 +15,29 @@ body {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
+    margin: 10px;
     min-height: 100vh;
-    position: relative;
-    /* height needed for absolute bottom 10 px */
-}
-
-
-.wrapper {
-    /* border: 1px solid  black; */
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: 300px;
-    width: 300px;
     overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    border-radius: 7px;
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    /* 
-    padding-bottom: 20px; */
-    margin-bottom: 30px;
-}
-
-.chat {
-    padding: 10px;
-    /* remove width and height for padding to work*/
-    /* width: 100%;
-    height: 100%; */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center; */
 }
 
-.chat__item {
-    /* width: 45%; */
-    background: greenyellow;
+
+.box {
+    /* max-width: 50%; */
     padding: 1rem;
-    max-width: 45%;
-    align-self: flex-start;
-    max-width: 45%;
-    min-width: 20%;
-    /* For .chat__item--odd, the 20% minimum width is applied within its own constraints,
-     which may be different due to the flex-end alignment. 
-     Hence used  align-self: flex-start; here*/
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-bottom: 20px;
-    transform: translateX(-40px);
-    opacity: 0;
-    transition: transform 155ms ease-in;
-    border-radius: 7px;
+    transform: translateX(400%);
+    transition: transform .5s ease;
 }
-
-/* .chat__item:nth-of-type(odd) {
-    align-self: flex-end;
-    background: chocolate;
-    transform: translateX(40px);
+/* :nth-of-type didnt work  see "trial-chatbot-body" branch */
+/* .box:nth-of-type(even) {
+    transform: translateX(-400%);
 } */
 
-
-.chat__item--odd {
-    align-self: flex-end;
-    background: chocolate;
-    transform: translateX(40px);
-
-}
-
-.chat__item--active {
+.active {
     transform: translateX(0);
-    opacity: 1;
 }
-
-/* :nth-child  css --> i think gets added after transition applied and element loaded in dom hence didnt work */
-
-
-/* asked -->
-Conclusion
-To directly answer your question:
-
-Yes, :nth-child gets added after the transition is applied and the element is loaded in the DOM.
-
-• The pseudo-class itself is processed immediately when the CSS is parsed. • The effects of :nth-child become apparent once the corresponding HTML elements are loaded and rendered. • Transitions applied to :nth-child targets work on the computed styles, which may differ from the actual DOM structure until the elements are fully loaded.
-
-It's important to note that while :nth-child is processed early, the visual effects of targeting specific children often depend on the full rendering of the DOM. Always test your CSS in various scenarios to ensure the desired behavior across different loading conditions. */
-
-/* .chat__item:nth-child(even) {
-    align-self: flex-end;
-    background: chocolate;
-    transform: translateX(40px);
-}
-
-.chat__item:nth-child(even):hover {
-    transform: translateX(0);
-} */

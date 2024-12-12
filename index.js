@@ -1,19 +1,23 @@
-const chatItems = document.querySelectorAll(".chat__item");
+const boxItems = document.querySelectorAll(".box");
 
-const observer = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        console.log(entry.isIntersecting);
-        entry.target.classList.add("chat__item--active");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.4,
-    // saw than since since transition transform X used threshold was like .4 for isIntersecting to work
-  }
-);
+//Difference between document.addEventListener and window.addEventListener
 
-chatItems.forEach((item) => observer.observe(item));
+window.addEventListener("scroll", addRemoveAnimation);
+
+addRemoveAnimation();
+
+function addRemoveAnimation() {
+  // console.log("addRemoveAnimation", window.innerHeight);
+  const triggerBottom = (window.innerHeight / 5) * 4;
+  //mutiply and divide so as to decrease box size --> allows user to see scroll animation on item leave screen
+
+  boxItems.forEach((box, index) => {
+    const boxTop = box.getBoundingClientRect().top;
+
+    if ((index == 1)) {
+      console.log("getBoundingClientRect", boxTop, triggerBottom);
+    }
+
+    box.classList.toggle("active", boxTop < triggerBottom);
+  });
+}
