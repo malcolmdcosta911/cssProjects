@@ -66,6 +66,12 @@ body {
     border-radius: 7px;
 }
 
+/* .chat__item:nth-of-type(odd) {
+    align-self: flex-end;
+    background: chocolate;
+    transform: translateX(40px);
+} */
+
 
 .chat__item--odd {
     align-self: flex-end;
@@ -74,7 +80,23 @@ body {
 
 }
 
+.chat__item--active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 /* :nth-child  css --> i think gets added after transition applied and element loaded in dom hence didnt work */
+
+
+/* asked -->
+Conclusion
+To directly answer your question:
+
+Yes, :nth-child gets added after the transition is applied and the element is loaded in the DOM.
+
+• The pseudo-class itself is processed immediately when the CSS is parsed. • The effects of :nth-child become apparent once the corresponding HTML elements are loaded and rendered. • Transitions applied to :nth-child targets work on the computed styles, which may differ from the actual DOM structure until the elements are fully loaded.
+
+It's important to note that while :nth-child is processed early, the visual effects of targeting specific children often depend on the full rendering of the DOM. Always test your CSS in various scenarios to ensure the desired behavior across different loading conditions. */
 
 /* .chat__item:nth-child(even) {
     align-self: flex-end;
@@ -85,9 +107,3 @@ body {
 .chat__item:nth-child(even):hover {
     transform: translateX(0);
 } */
-
-
-.chat__item--active {
-    transform: translateX(0);
-    opacity: 1;
-}
