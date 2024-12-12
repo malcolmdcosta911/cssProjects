@@ -1,20 +1,19 @@
-const showBtn = document.getElementById("show");
-const hideBtn = document.getElementById("hide");
-const container = document.getElementById("container");
-const menuCircle = document.getElementById("menuCircle");
-const navbar = document.getElementById("navbar");
+const chatItems = document.querySelectorAll(".chat__item");
 
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log(entry.isIntersecting);
+        entry.target.classList.add("chat__item--active");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.4,
+    // saw than since since transition transform X used threshold was like .4 for isIntersecting to work
+  }
+);
 
-
-showBtn.addEventListener("click", (e) => {
-  container.classList.add("show");
-  menuCircle.classList.add("rotate");
-  navbar.classList.add("active");
-});
-
-hideBtn.addEventListener("click", (e) => {
-  container.classList.remove("show");
-  menuCircle.classList.remove("rotate");
-  navbar.classList.remove("active");
-
-});
+chatItems.forEach((item) => observer.observe(item));
