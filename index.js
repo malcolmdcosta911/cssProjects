@@ -1,20 +1,65 @@
-const showBtn = document.getElementById("show");
-const hideBtn = document.getElementById("hide");
-const container = document.getElementById("container");
-const menuCircle = document.getElementById("menuCircle");
-const navbar = document.getElementById("navbar");
+fetchData();
 
+function fetchData() {
+  const loadWrapper = document.createElement("div");
+  loadWrapper.classList.add("loadWrapper");
+  const activity = document.createElement("div");
+  activity.classList.add("activity");
+  loadWrapper.append(activity);
 
+  //-----------------------------heading starts-------------
 
-showBtn.addEventListener("click", (e) => {
-  container.classList.add("show");
-  menuCircle.classList.add("rotate");
-  navbar.classList.add("active");
-});
+  const cardHead = document.querySelector(".card__heading");
+  if (!cardHead) return;
 
-hideBtn.addEventListener("click", (e) => {
-  container.classList.remove("show");
-  menuCircle.classList.remove("rotate");
-  navbar.classList.remove("active");
+  //   const oldCotent1 = cardHead.childNodes[1].cloneNode(true);
+  //   const oldCotent0 = cardHead.childNodes[0].cloneNode(true);
+  //   console.log(oldCotent1, oldCotent0);
+  //   if (oldCotent1 instanceof Node) {
+  //     console.log("cardHead is a Node");
+  //   } else {
+  //     console.log("cardHead is likely an element");
+  //   }
 
-});
+  const headLoadWrapper = loadWrapper.cloneNode(true);
+  headLoadWrapper.style.minHeight = "50px";
+
+  const oldHeadCotent = [...cardHead.childNodes];
+
+  removeChildren(cardHead, cardHead.childNodes);
+  cardHead.appendChild(headLoadWrapper);
+
+  //-----------------------------heading ends-------------
+
+  //-----------------------------avatar starts-------------
+  const avatar = document.querySelector(".avatar");
+
+  const oldAvatar = avatar.cloneNode(true);
+  console.log("oldAvatar", oldAvatar);
+
+  const circlularLoadWrapper = loadWrapper.cloneNode(true);
+  circlularLoadWrapper.classList.add("circular");
+
+  avatar.appendChild(circlularLoadWrapper);
+
+  //-----------------------------avatar ends-------------
+
+  setTimeout(() => {
+    // cardHead.appendChild(oldCotent0);
+    //
+    //readdd heading
+    removeChildren(cardHead, cardHead.childNodes);
+    Array.from(oldHeadCotent).forEach((node) => {
+      cardHead.appendChild(node);
+    });
+
+    //remove avatars circlularLoadWrapper
+    avatar.removeChild(circlularLoadWrapper);
+  }, 2000);
+}
+
+function removeChildren(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
