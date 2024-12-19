@@ -13,9 +13,17 @@
 <body>
     <div>
         <!-- unlike normal html svg has below -y, +x as normal +x , +y -->
-        <svg viewBox="0 0 96 96" fill="none" width="300" height="300">
+        <!-- viewBox="0 0 96 96" this is axis graph box and is responsive and scales based on width height -->
+        <svg viewBox="0 0 96 96" fill="none" width="200" height="200">
+            <!-- +x of 48 , +y of 48  and radius of 35-->
             <circle r="35" cx="48" cy="48" stroke="#42A94C" stroke-width="4" fill="none" class="circle" />
-            <path d="M33 51L42 60L63 39" stroke="#42A94C" stroke-width="4" stroke-linecap="round"
+            <!-- M33 51 --- move x 33 and y 52 
+             then
+             L42 60 --- line from prev points to x 42 y 60 
+             then
+             L63 39 --- line from prev points to x 63 y 39 
+            -->
+            <path d="M33 51 L42 60 L63 39" stroke="#42A94C" stroke-width="4" stroke-linecap="round"
                 stroke-linejoin="round" class="check" />
         </svg>
     </div>
