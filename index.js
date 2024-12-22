@@ -1,5 +1,7 @@
 fetchData();
 
+console.log("yes");
+
 function fetchData() {
   const loadWrapper = document.createElement("div");
   loadWrapper.classList.add("loadWrapper");
